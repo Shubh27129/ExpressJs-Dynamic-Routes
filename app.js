@@ -19,6 +19,8 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const bookappRoutes= require('./routes/bookappointment');
+const expenseRoutes = require('./routes/expense');
+
 
 app.use(bodyParser.json({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -27,6 +29,7 @@ app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
 app.use('/user',bookappRoutes)
+app.use('/expense', expenseRoutes)
 
 
 

@@ -14,7 +14,7 @@ exports.postUser= async(req, res, next)=>{
 
     const data= await User.create({name:name, email:email, phonenumber:phonenumber})
     console.log('User created:', data);
-    res.status(201).json({userDetails: data});
+    res.status(201).json(data);
     }catch(err){
         res.status(500).json({
             error:err
@@ -25,7 +25,7 @@ exports.postUser= async(req, res, next)=>{
 exports.getUser= async (req, res, next)=>{
     try{
     const users= await User.findAll();
-    res.status(200).json({allUsers: users});
+    res.status(200).json(users);
     }catch(error){
         console.log('Error in get user',JSON.stringify(error))
         res.status(500).json({error:error})
